@@ -23,8 +23,8 @@ const AddWorkout = ({title, date, addSubmit, addWorkout, workout}) => {
                 <input type="date" ref={dateRef} required/>
                 <button>+</button>
             </form>
-            <ul>{date.map(data => <Workout 
-                data={data} title={title} addExercise={addExercise} workout={workout}/>)}</ul>
+            <ul>{date.slice(-10).map(value => <Workout 
+                date={value} title={title} addExercise={addExercise} workout={workout}/>)}</ul>
         </section>
     )};
 
