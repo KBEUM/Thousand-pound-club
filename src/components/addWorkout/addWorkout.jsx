@@ -2,7 +2,7 @@ import React, { useRef} from 'react';
 import styles from './addWorkout.module.css'
 import Workout from '../workout/workout';
 
-const AddWorkout = ({title, date, addSubmit, addWorkout, workout}) => {    
+const AddWorkout = ({title, date, addSubmit, addWorkout, workout, addDelete, onDateDelete}) => {    
 
     const dateRef = useRef();
 
@@ -16,6 +16,14 @@ const AddWorkout = ({title, date, addSubmit, addWorkout, workout}) => {
         addWorkout(exercise)
     }
 
+    const onDelete = (detail) => {
+        addDelete(detail)
+    }
+
+    const dateDelete = (dateValue) => {        
+        onDateDelete(dateValue)
+    }
+
     return (       
         <section>
             <form className={styles.form} onSubmit={onSubmit}>
@@ -24,7 +32,8 @@ const AddWorkout = ({title, date, addSubmit, addWorkout, workout}) => {
                 <button>+</button>
             </form>
             <ul>{date.slice(-10).map(value => <Workout 
-                date={value} title={title} addExercise={addExercise} workout={workout}/>)}</ul>
+                date={value} title={title} addExercise={addExercise} workout={workout} 
+                onDelete={onDelete} onDateDelete={dateDelete}/>)}</ul>
         </section>
     )};
 

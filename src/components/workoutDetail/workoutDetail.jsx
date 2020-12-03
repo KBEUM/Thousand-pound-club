@@ -1,18 +1,26 @@
 import React from 'react';
 import styles from './workoutDetail.module.css'
 
-const WorkoutDetail = ({detail, date}) => {
+const WorkoutDetail = ({detail, date, addDelete}) => {
 
-    const temp = () => {
+    const onClick = () => {
+        addDelete(detail)
+    }
+
+    const content = () => {
         if (detail.date === date) {
-            return <div>{detail.weight}kg, {detail.reps}reps, {detail.weight * detail.reps}volumn</div>
-        }
+            return (
+            <div className={styles.main}>
+                <div>{detail.weight}kg, {detail.reps}reps, {detail.weight * detail.reps}volumn</div>
+                <button onClick={onClick}>xxxx</button>
+            </div>
+        )}
     }
 
     return(
-        <div>
-            {temp()}
-        </div>
+        <li>
+            {content()}
+        </li>
     )};
 
 export default WorkoutDetail;

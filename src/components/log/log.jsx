@@ -1,31 +1,23 @@
-import React, { useState } from 'react';
-import WorkoutDetail from '../workoutDetail/workoutDetail';
+import React from 'react';
+import LogWorkout from '../logWorkout/logWorkout';
 import styles from './log.module.css'
 
-const Log = ({title, workout}) => {
+const Log = ({title, workout, date, addDelete, onDateDelete}) => {
 
-    const [arrow, setArrow] = useState(false);
+    const onDelete =(detail) => {
+        addDelete(detail)
+    }  
 
-    const onClick = () => {
-        arrow? setArrow(false) : setArrow(true)
+
+    const dateDelete = (dateValue) => {
+        onDateDelete(dateValue)
     }
-    const dateArr = [...new Set(workout.map(data => data.date))]
 
     return(
-        <div>
-            {dateArr.sort().map(date => 
-            <li>
-                <section className={styles.section}>
-                    <div>{title}</div>
-                    <div>{date}</div>
-                    <button onClick={onClick}>v</button>
-                </section>
-                {arrow &&
-                <ul>
-                    {workout.map(detail=> <WorkoutDetail detail={detail} date={date} />)}
-                </ul>}
-            </li>)}
-        </div>
+        <ul>{date.map(value => <LogWorkout 
+            title={title} date={value} workout={workout} 
+            onDelete={onDelete} onDateDelete={dateDelete}/>)}
+        </ul>
     )};
 
 export default Log;
