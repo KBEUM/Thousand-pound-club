@@ -1,14 +1,18 @@
 import styles from './menu.module.css'
 
 const Menu = ({}) => {
-
     return(
-        <ul className={styles.menu}>
-            <li className={styles.btn} ><a href="#HOME">HOMEPAGE</a></li>
-            <li className={styles.btn} ><a href="#BENCH PRESS">BENCH PRESS</a></li>
-            <li className={styles.btn} ><a href="#DEADLIFT">DEADLIFT</a></li>
-            <li className={styles.btn} ><a href="#SHUT UP & SQUAT">SHUT UP & SQUAT</a></li>
-        </ul>
+            <section className={styles.menu}>
+                <div><img className={styles.img} src=".\image\22.jpg" alt="logo"/></div>
+                <ul>
+                    <li className={styles.btn} ><a href="#HOME">HOMEPAGE</a></li>
+                    <li className={styles.btn} ><a href="#BENCH PRESS">BENCH PRESS</a></li>
+                    <li className={styles.btn} ><a href="#DEADLIFT">DEADLIFT</a></li>
+                    <li className={styles.btn} ><a href="#SQUAT">SQUAT</a></li>
+                </ul>
+                <div className={styles.simple}>
+                    <div className={styles.text}>Simple is the Best</div>
+                </div>
+            </section>
     )};
-
 export default Menu;

@@ -1,3 +1,65 @@
+.main {
+  list-style: none;
+}
+
 .section {
   display: flex;
+  color: white;
+  margin: 3rem;
+  margin-left: 0.5rem;
+  font-size: 2vw;
+}
+
+.sort,
+.trash {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  font-size: 2vw;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.sort {
+  font-size: 1.3vw;
+  color: transparent;
+  text-shadow: 0 0 0 white;
+}
+
+.sort:hover,
+.trash:hover {
+  opacity: 0.7;
+}
+
+.form {
+  margin-left: 3rem;
+  margin-bottom: 1rem;
+}
+
+.weight,
+.reps {
+  font-size: 1.3vw;
+  color: white;
+  background-color: black;
+  border: 3px solid white;
+  border-radius: 4px;
+  width: 10vw;
+}
+
+.reps {
+  margin-left: 1rem;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  color: white;
+  margin-left: 1rem;
+  font-size: 1.8vw;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.7;
 }

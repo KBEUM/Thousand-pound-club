@@ -1,0 +1,33 @@
+.add {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  /* background-color: violet; */
+}
+
+.title {
+  font-size: 5vw;
+  font-weight: bold;
+  color: white;
+  margin: 3rem;
+  margin-left: 1rem;
+}
+
+.input {
+  background-color: rgb(197, 197, 197);
+  font-size: 1.5vw;
+  font-weight: bolder;
+  border-radius: 4px;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  color: white;
+  margin-left: 1rem;
+  font-size: 1.8vw;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}

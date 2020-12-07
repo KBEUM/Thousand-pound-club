@@ -61,12 +61,14 @@ const MainWorkout = ({title}) => {
 
     return (
         <div id={title} className={styles.workout}>
-            <section className={styles.btns}>
-                <button onClick={onClick}>WORKOUT</button>
-                <button onClick={onClick}>CHART</button>
-                <button onClick={onClick}>LOG</button>
+            <section className={styles.btns}>                
+                <button className={styles.btn} onClick={onClick}>WORKOUT</button>
+                <button className={styles.btn} onClick={onClick}>CHART</button>
+                <button className={styles.btn} onClick={onClick}>LOG</button>                
             </section>
-            {changeComp()}
+            <section className={styles.detail}>
+                {changeComp()}
+            </section>
         </div>
     )};
 

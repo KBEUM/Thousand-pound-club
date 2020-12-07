@@ -1,10 +1,15 @@
-import React, { useRef} from 'react';
+import React, { useEffect, useRef} from 'react';
 import styles from './addWorkout.module.css'
 import Workout from '../workout/workout';
 
 const AddWorkout = ({title, date, addSubmit, addWorkout, workout, addDelete, onDateDelete}) => {    
 
     const dateRef = useRef();
+
+    useEffect(()=>{
+        const today = new Date().toISOString().substr(0,10);
+        dateRef.current.value = today
+    },[])
 
     const onSubmit = (event)=> {
         event.preventDefault();
@@ -24,16 +29,21 @@ const AddWorkout = ({title, date, addSubmit, addWorkout, workout, addDelete, onD
         onDateDelete(dateValue)
     }
 
+
     return (       
-        <section>
+        <section className={styles.add}>
             <form className={styles.form} onSubmit={onSubmit}>
-                <span>{title}</span>
-                <input type="date" ref={dateRef} required/>
-                <button>+</button>
+                <span className={styles.title}>{title}</span>
+                <input className={styles.input} type="date" ref={dateRef} required/>
+                <button className={styles.btn}>
+                    <i class="fas fa-plus-circle"></i>
+                </button>
             </form>
-            <ul>{date.slice(-10).map(value => <Workout 
+            <ul>
+                {date.slice(-3).map(value => <Workout 
                 date={value} title={title} addExercise={addExercise} workout={workout} 
-                onDelete={onDelete} onDateDelete={dateDelete}/>)}</ul>
+                onDelete={onDelete} onDateDelete={dateDelete}/>)}
+            </ul>
         </section>
     )};
 

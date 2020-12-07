@@ -8,7 +8,6 @@ const Log = ({title, workout, date, addDelete, onDateDelete}) => {
         addDelete(detail)
     }  
 
-
     const dateDelete = (dateValue) => {
         onDateDelete(dateValue)
     }

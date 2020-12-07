@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './workoutDetail.module.css'
 
 const WorkoutDetail = ({detail, date, addDelete}) => {
@@ -10,17 +10,19 @@ const WorkoutDetail = ({detail, date, addDelete}) => {
     const content = () => {
         if (detail.date === date) {
             return (
-            <div className={styles.main}>
-                <div>{detail.weight}kg, {detail.reps}reps, {detail.weight * detail.reps}volumn</div>
-                <button onClick={onClick}>xxxx</button>
+            <div className={styles.detail}>
+                <div>◽ {detail.weight}kg, {detail.reps}reps, Volume = {detail.weight * detail.reps}KG</div>
+                <button className={styles.cancel} onClick={onClick}>
+                    <i class="fas fa-window-close"></i>
+                </button>
             </div>
         )}
     }
 
     return(
-        <li>
+        <div className={styles.main}>
             {content()}
-        </li>
+        </div>
     )};
 
 export default WorkoutDetail;
