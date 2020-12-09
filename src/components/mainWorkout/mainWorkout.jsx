@@ -1,18 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AddWorkout from '../addWorkout/addWorkout';
 import ChartLib from '../chartLib/chartLib';
 import Log from '../log/log';
 import styles from './mainWorkout.module.css'
 
-const MainWorkout = ({title}) => {
+const MainWorkout = ({title, authService, workoutDatabase}) => {
 
     const [change, setChange] = useState('WORKOUT')
-    const [date, setDate] = useState([])
-    const [workout, setWorkout] = useState([])  
+    const [date, setDate] = useState({})
+    const [workout, setWorkout] = useState({})  
+
+
+    const [userId, setUserId] = useState()
+
+    useEffect(()=>{
+        authService.authChange(user => {
+            user && setUserId(user.uid)
+        });
+    })
+
+    useEffect(()=>{
+        workoutDatabase.updateDate(userId, title, (dateValue) =>{
+            setDate(dateValue)
+        });
+        workoutDatabase.updateWorkout(userId, title, (workoutValue) =>{
+            setWorkout(workoutValue)
+        });
+    }, [userId, workoutDatabase, title])
 
     const onClick = (event) => {
         setChange(event.target.innerText)
-    }    
+    }
 
     const changeComp = () => {
         if(change === 'WORKOUT') {
@@ -20,43 +38,34 @@ const MainWorkout = ({title}) => {
             addWorkout={addWorkout} workout={workout} addDelete={addDelete} onDateDelete={dateDelete}/> 
         }
         else if (change === "CHART") {
-            return <ChartLib title={title} workout={workout} date={date.sort()} />
+            return <ChartLib title={title} workout={workout} date={date} />
         }
         else if (change === "LOG") {
-            return <Log title={title} workout={workout.sort()} date={date} addDelete={addDelete} onDateDelete={dateDelete}/>
+            return <Log title={title} workout={workout} date={date} addDelete={addDelete} onDateDelete={dateDelete}/>
         }
     }
 
+
     const addSubmit = (dateValue) => {
-        for (let i=0; i<=date.length; i++){
-            if(date[i] === dateValue) {
-                alert('이미 운동한 날')
-                return false
-            }
-            
-        }
-        const temp = date.sort()
-        temp.unshift(dateValue)
-        const result = [...temp]
-        setDate(result)
+        workoutDatabase.saveDate(userId, title, dateValue)
     };
+
+    const dateDelete = (dateValue) => {
+        const updated = {...date};
+        delete updated[`${title}${dateValue}`];
+        setDate(updated);
+        workoutDatabase.deleteDate(userId, title, dateValue)
+    }
     
     const addWorkout = (exercise) => {
-        setWorkout([...workout, exercise])
+        workoutDatabase.saveWorkout(userId, title, exercise)
     };
 
     const addDelete = (detail) => {
-        const temp = [...workout]
-        const idx = temp.indexOf(detail)
-        temp.splice(idx,1)
-        setWorkout(temp)
-    }
-
-    const dateDelete = (dateValue) => {
-        const temp = [...date]
-        const idx = temp.indexOf(dateValue)
-        temp.splice(idx,1)
-        setDate(temp)
+        const updated = {...workout}
+        delete updated[`${detail.id}`];
+        setWorkout(updated);
+        workoutDatabase.deleteWorkout(userId, title, detail);
     }
 
     return (

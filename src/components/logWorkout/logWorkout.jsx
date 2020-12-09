@@ -31,7 +31,8 @@ const LogWorkout = ({title, date, workout, onDelete, onDateDelete}) => {
             </section>
             {arrow &&
                 <div className={styles.detail}>
-                    {workout.map(detail=> <WorkoutDetail detail={detail} date={date} addDelete={addDelete} />)}
+                    {Object.keys(workout).map(key=> <WorkoutDetail key={key}
+                    detail={workout[key]} date={date} addDelete={addDelete} />)}
                 </div>}
         </li>
     )};

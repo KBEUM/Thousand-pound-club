@@ -1,7 +1,6 @@
 .add {
   margin-top: 2rem;
   margin-left: 2rem;
-  /* background-color: violet; */
 }
 
 .title {
@@ -30,4 +29,14 @@
 
 .btn:hover {
   opacity: 0.7;
+}
+
+@media screen and (max-width: 55rem) {
+  .title {
+    font-size: 3rem;
+  }
+  .input,
+  .btn {
+    font-size: 1.8rem;
+  }
 }

@@ -1,6 +1,7 @@
 .menu {
-  width: 25rem;
+  width: 22rem;
   height: 100%;
+  min-height: 55rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -9,10 +10,6 @@
   flex-direction: column;
   justify-content: center;
   position: fixed;
-}
-
-.date {
-  font-size: 5rem;
 }
 
 .img {
@@ -26,18 +23,18 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 2rem;
   list-style: none;
+}
+
+.btn:hover {
+  opacity: 0.7;
 }
 
 a {
   text-decoration: none;
   color: white;
-}
-
-a:hover {
-  text-decoration: none;
 }
 
 .simple {
@@ -51,4 +48,10 @@ a:hover {
 .text {
   float: right;
   margin-right: 3rem;
+}
+
+@media screen and (max-width: 55rem) {
+  .menu {
+    display: none;
+  }
 }

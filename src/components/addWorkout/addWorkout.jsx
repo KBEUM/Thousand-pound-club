@@ -28,8 +28,7 @@ const AddWorkout = ({title, date, addSubmit, addWorkout, workout, addDelete, onD
     const dateDelete = (dateValue) => {        
         onDateDelete(dateValue)
     }
-
-
+    
     return (       
         <section className={styles.add}>
             <form className={styles.form} onSubmit={onSubmit}>
@@ -40,9 +39,13 @@ const AddWorkout = ({title, date, addSubmit, addWorkout, workout, addDelete, onD
                 </button>
             </form>
             <ul>
-                {date.slice(-3).map(value => <Workout 
-                date={value} title={title} addExercise={addExercise} workout={workout} 
-                onDelete={onDelete} onDateDelete={dateDelete}/>)}
+                {Object.keys(date)
+                .filter(key => key === `${title}${date[key]}`)
+                .slice(-2)
+                .map(key => <Workout key={key}
+                    date={date[key]} title={title} addExercise={addExercise} workout={workout} 
+                    onDelete={onDelete} onDateDelete={dateDelete}/>)
+                }
             </ul>
         </section>
     )};

@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import WorkoutDetail from '../workoutDetail/workoutDetail';
 import styles from './workout.module.css'
 
-const Workout = ({date, addExercise, workout, onDelete, onDateDelete}) => {   
+const Workout = ({date, title, addExercise, workout, onDelete, onDateDelete}) => {   
 
     const weightRef = useRef();
     const repsRef = useRef();
@@ -10,8 +10,9 @@ const Workout = ({date, addExercise, workout, onDelete, onDateDelete}) => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        const exercise = {date: date, weight:weightRef.current.value, reps:repsRef.current.value}
-        addExercise(exercise)
+        const exercise = {id: Date.now(), date: date, weight:weightRef.current.value, reps:repsRef.current.value}
+        addExercise(exercise);
+        event.target.reset();
     }
 
     const onClick = () => {
@@ -29,7 +30,7 @@ const Workout = ({date, addExercise, workout, onDelete, onDateDelete}) => {
     return(
         <li className={styles.main}>
             <section className={styles.section}>
-                <div>◻ {date} RECORD</div>
+                <div>◻ {date}</div>
                 <button className={styles.sort} onClick={onClick}>
                     {arrow ? '🔺' : '🔻'}
                 </button>
@@ -49,7 +50,8 @@ const Workout = ({date, addExercise, workout, onDelete, onDateDelete}) => {
                     </button>
                 </form>
                 <div>
-                    {workout.map(detail=> <WorkoutDetail detail={detail} date={date} addDelete={addDelete} />)}
+                    {Object.keys(workout).map(key=> <WorkoutDetail key={key}
+                    detail={workout[key]} date={date} addDelete={addDelete} />)}
                 </div>
             </section>}
         </li>

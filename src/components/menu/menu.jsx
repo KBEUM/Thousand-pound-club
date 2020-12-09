@@ -1,6 +1,12 @@
+import { useEffect } from 'react';
 import styles from './menu.module.css'
 
 const Menu = ({}) => {
+
+    useEffect(()=>{
+        
+    })
+
     return(
             <section className={styles.menu}>
                 <div><img className={styles.img} src=".\image\22.jpg" alt="logo"/></div>

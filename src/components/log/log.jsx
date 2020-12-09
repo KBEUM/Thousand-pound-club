@@ -1,6 +1,6 @@
 import React from 'react';
-import LogWorkout from '../logWorkout/logWorkout';
 import styles from './log.module.css'
+import LogWorkout from '../logWorkout/logWorkout';
 
 const Log = ({title, workout, date, addDelete, onDateDelete}) => {
 
@@ -13,10 +13,17 @@ const Log = ({title, workout, date, addDelete, onDateDelete}) => {
     }
 
     return(
-        <ul>{date.map(value => <LogWorkout 
-            title={title} date={value} workout={workout} 
-            onDelete={onDelete} onDateDelete={dateDelete}/>)}
-        </ul>
+        <section>
+            <div className={styles.log}>Workout Logs</div>
+            <ul>
+                {Object.keys(date)
+                    .filter(key => key === `${title}${date[key]}`)
+                    .map(key => <LogWorkout key={key}
+                        title={title} date={date[key]} workout={workout} 
+                        onDelete={onDelete} onDateDelete={dateDelete}/>)
+                    }
+            </ul>
+        </section>
     )};
 
 export default Log;

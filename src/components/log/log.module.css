@@ -1,3 +1,5 @@
-.section {
-  display: flex;
+.log {
+  font-size: 3rem;
+  color: white;
+  margin: 2rem;
 }
