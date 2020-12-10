@@ -9,7 +9,7 @@ const Menu = ({}) => {
 
     return(
             <section className={styles.menu}>
-                <div><img className={styles.img} src=".\image\22.jpg" alt="logo"/></div>
+                <div><img className={styles.img} src=".\image\logo.jpg" alt="logo"/></div>
                 <ul>
                     <li className={styles.btn} ><a href="#HOME">HOMEPAGE</a></li>
                     <li className={styles.btn} ><a href="#BENCH PRESS">BENCH PRESS</a></li>
