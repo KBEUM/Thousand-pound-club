@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import styles from './login.module.css'
+import styles from './login_home.module.css'
 
-const Login = ({authService}) => {  
+const LoginHome = ({authService}) => {  
 
     const history = useHistory();
 
@@ -39,4 +39,4 @@ const Login = ({authService}) => {
         </section>
     )};
 
-export default Login;
+export default LoginHome;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './log.module.css'
-import LogWorkout from '../logWorkout/logWorkout';
+import WorkoutLog from '../workout_log/workout_log';
 
 const Log = ({title, workout, date, addDelete, onDateDelete}) => {
 
@@ -18,8 +18,8 @@ const Log = ({title, workout, date, addDelete, onDateDelete}) => {
             <ul>
                 {Object.keys(date)
                     .filter(key => key === `${title}${date[key]}`)
-                    .map(key => <LogWorkout key={key}
-                        title={title} date={date[key]} workout={workout} 
+                    .map(key => <WorkoutLog key={key}
+                        date={date[key]} workout={workout} 
                         onDelete={onDelete} onDateDelete={dateDelete}/>)
                     }
             </ul>

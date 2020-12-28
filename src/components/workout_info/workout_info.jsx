@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import styles from './workoutDetail.module.css'
+import React from 'react';
+import styles from './workout_info.module.css'
 
-const WorkoutDetail = ({detail, date, addDelete}) => {
+const WorkoutInfo = ({detail, date, addDelete}) => {
 
     const onClick = () => {
         addDelete(detail)
@@ -25,4 +25,4 @@ const WorkoutDetail = ({detail, date, addDelete}) => {
         </div>
     )};
 
-export default WorkoutDetail;
+export default WorkoutInfo;

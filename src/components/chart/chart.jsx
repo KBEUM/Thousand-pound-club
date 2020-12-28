@@ -1,5 +1,5 @@
 // import React, { useEffect, useState } from 'react';
-import styles from './chartLib.module.css'
+import styles from './chart.module.css'
 import Chart from "react-google-charts";
 
 const ChartLib = ({title, workout, date}) => {

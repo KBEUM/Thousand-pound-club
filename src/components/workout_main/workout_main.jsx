@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import AddWorkout from '../addWorkout/addWorkout';
-import ChartLib from '../chartLib/chartLib';
+import AddWorkoutDate from '../add_workout_date/add_workout_date';
+import Chart from '../chart/chart';
 import Log from '../log/log';
-import styles from './mainWorkout.module.css'
+import styles from './workout_main.module.css'
 
-const MainWorkout = ({title, authService, workoutDatabase}) => {
+const WorkoutMain = ({title, authService, workoutDatabase}) => {
 
     const [change, setChange] = useState('WORKOUT')
     const [date, setDate] = useState({})
@@ -34,11 +34,11 @@ const MainWorkout = ({title, authService, workoutDatabase}) => {
 
     const changeComp = () => {
         if(change === 'WORKOUT') {
-            return <AddWorkout title={title} addSubmit={addSubmit} date={date}
+            return <AddWorkoutDate title={title} addSubmit={addSubmit} date={date}
             addWorkout={addWorkout} workout={workout} addDelete={addDelete} onDateDelete={dateDelete}/> 
         }
         else if (change === "CHART") {
-            return <ChartLib title={title} workout={workout} date={date} />
+            return <Chart title={title} workout={workout} date={date} />
         }
         else if (change === "LOG") {
             return <Log title={title} workout={workout} date={date} addDelete={addDelete} onDateDelete={dateDelete}/>
@@ -81,4 +81,4 @@ const MainWorkout = ({title, authService, workoutDatabase}) => {
         </div>
     )};
 
-export default MainWorkout;
+export default WorkoutMain;

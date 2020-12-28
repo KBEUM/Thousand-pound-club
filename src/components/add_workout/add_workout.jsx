@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
-import WorkoutDetail from '../workoutDetail/workoutDetail';
-import styles from './workout.module.css'
+import WorkoutInfo from '../workout_info/workout_info';
+import styles from './add_workout.module.css'
 
-const Workout = ({date, title, addExercise, workout, onDelete, onDateDelete}) => {   
+const AddWorkout = ({date, addExercise, workout, onDelete, onDateDelete}) => {   
 
     const weightRef = useRef();
     const repsRef = useRef();
@@ -50,11 +50,11 @@ const Workout = ({date, title, addExercise, workout, onDelete, onDateDelete}) =>
                     </button>
                 </form>
                 <div>
-                    {Object.keys(workout).map(key=> <WorkoutDetail key={key}
+                    {Object.keys(workout).map(key=> <WorkoutInfo key={key}
                     detail={workout[key]} date={date} addDelete={addDelete} />)}
                 </div>
             </section>}
         </li>
     )};
 
-export default Workout;
+export default AddWorkout;

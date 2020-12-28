@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import WorkoutDetail from '../workoutDetail/workoutDetail';
-import styles from './logWorkout.module.css'
+import WorkoutInfo from '../workout_info/workout_info';
+import styles from './workout_log.module.css'
 
-const LogWorkout = ({title, date, workout, onDelete, onDateDelete}) => {   
+const WorkoutLog = ({date, workout, onDelete, onDateDelete}) => {   
 
     const [arrow, setArrow] = useState(false);
 
@@ -31,10 +31,10 @@ const LogWorkout = ({title, date, workout, onDelete, onDateDelete}) => {
             </section>
             {arrow &&
                 <div className={styles.detail}>
-                    {Object.keys(workout).map(key=> <WorkoutDetail key={key}
+                    {Object.keys(workout).map(key=> <WorkoutInfo key={key}
                     detail={workout[key]} date={date} addDelete={addDelete} />)}
                 </div>}
         </li>
     )};
 
-export default LogWorkout;
+export default WorkoutLog;

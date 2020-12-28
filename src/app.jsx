@@ -1,8 +1,8 @@
 import Menu from './components/menu/menu';
-import MainWorkout from './components/mainWorkout/mainWorkout';
+import WorkoutMain from './components/workout_main/workout_main';
 import Home from './components/home/home';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Login from './components/login/login';
+import LoginHome from './components/login_home/login_home';
 import AuthService from './service/authService';
 import WokroutDatabase from './service/database';
 
@@ -14,18 +14,18 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Login authService={authService}/>
+          <LoginHome authService={authService}/>
         </Route>
         <Route exact path="/main">
           <div>
             <Menu />
             <section>
               <Home authService={authService}/>
-              <MainWorkout title='BENCH PRESS' authService={authService} 
+              <WorkoutMain title='BENCH PRESS' authService={authService} 
                             workoutDatabase={workoutDatabase}/>
-              <MainWorkout title='DEADLIFT' authService={authService} 
+              <WorkoutMain title='DEADLIFT' authService={authService} 
                             workoutDatabase={workoutDatabase}/>
-              <MainWorkout title='SQUAT' authService={authService} 
+              <WorkoutMain title='SQUAT' authService={authService} 
                             workoutDatabase={workoutDatabase}/>
             </section>
           </div>

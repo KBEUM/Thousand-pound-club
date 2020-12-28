@@ -1,8 +1,8 @@
 import React, { useEffect, useRef} from 'react';
-import styles from './addWorkout.module.css'
-import Workout from '../workout/workout';
+import styles from './add_workout_date.module.css'
+import AddWorkout from '../add_workout/add_workout';
 
-const AddWorkout = ({title, date, addSubmit, addWorkout, workout, addDelete, onDateDelete}) => {    
+const AddWorkoutDate = ({title, date, addSubmit, addWorkout, workout, addDelete, onDateDelete}) => {    
 
     const dateRef = useRef();
 
@@ -42,12 +42,12 @@ const AddWorkout = ({title, date, addSubmit, addWorkout, workout, addDelete, onD
                 {Object.keys(date)
                 .filter(key => key === `${title}${date[key]}`)
                 .slice(-2)
-                .map(key => <Workout key={key}
-                    date={date[key]} title={title} addExercise={addExercise} workout={workout} 
+                .map(key => <AddWorkout key={key}
+                    date={date[key]} addExercise={addExercise} workout={workout} 
                     onDelete={onDelete} onDateDelete={dateDelete}/>)
                 }
             </ul>
         </section>
     )};
 
-export default AddWorkout;
+export default AddWorkoutDate;
