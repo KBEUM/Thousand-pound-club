@@ -3,7 +3,7 @@ import WorkoutMain from './components/workout_main/workout_main';
 import Home from './components/home/home';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LoginHome from './components/login_home/login_home';
-import AuthService from './service/authService';
+import AuthService from './service/auth_service';
 import WokroutDatabase from './service/database';
 
 const authService = new AuthService();

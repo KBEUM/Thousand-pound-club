@@ -8,9 +8,7 @@ const WorkoutMain = ({title, authService, workoutDatabase}) => {
 
     const [change, setChange] = useState('WORKOUT')
     const [date, setDate] = useState({})
-    const [workout, setWorkout] = useState({})  
-
-
+    const [workout, setWorkout] = useState({})
     const [userId, setUserId] = useState()
 
     useEffect(()=>{

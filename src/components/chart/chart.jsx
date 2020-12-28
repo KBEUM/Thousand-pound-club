@@ -1,36 +1,14 @@
-// import React, { useEffect, useState } from 'react';
 import styles from './chart.module.css'
 import Chart from "react-google-charts";
 
 const ChartLib = ({title, workout, date}) => {
 
 
-  // useEffect(()=>{
-  //   console.log(workout)
-  //   console.log(date)
-  // },[])
+  // console.log(date)
+  // console.log(workout)
 
-  // const asdf = workout.filter(value => {
-  //   return value.date === date[0]
-  // })
-
-  // const [test, settest] = useState([])
-
-  // useEffect(()=>{
-  //   for(let i=0; i<date.length; i++){
-  //     let asdf = workout.filter(value => {
-  //       return value.date === date[i]        
-  //     })
-  //     settest([...test, [asdf]])
-  //   }
-  // },[])
-
-  // for(let i=0; i<date.length; i++){
-  //   workout.filter(value => {
-  //     settest(value.date === date[i])
-  //   })
-  // }
-
+  // const asdf = Object.keys(workout).map(key => workout[key].date)
+  // console.log(asdf)
 
   return(
     <div className={styles.main}>
@@ -40,18 +18,15 @@ const ChartLib = ({title, workout, date}) => {
         chartType="LineChart"
         loader={<div>Loading Chart</div>}
         data={[
-          ['x', 'Wieght', 'Volume / 10'],
-          [0, 100, 100],
-          [1, 110, 110],
-          [2, 110, 150],
-          [3, 120, 200],
-          [4, 130, 200],
-          [5, 130, 220],
-          [6, 135, 220],
-          [7, 140, 250],
-          [8, 140, 180],
-          [9, 140, 190],
-          [10, 140, 220]
+          ['date', 'Weight', 'Volume / 10'],
+          [`12-10`, 100, 100],
+          [`12-15`, 110, 110],
+          [`12-20`, 110, 130],
+          [`12-22`, 120, 140],
+          [`12-25`, 120, 145],
+          [`12-26`, 120, 150],
+          [`12-27`, 125, 150],
+          [`12-28`, 130, 145]
         ]}
         options={{
           backgroundColor: 'white',
