@@ -1,4 +1,4 @@
-# Thousnad-pound-club
+# Thousand-pound-club
 
 React를 사용하여 3대운동 기록하는 웹사이트입니다.  
 https://thousand-pound-club-91656.web.app  
