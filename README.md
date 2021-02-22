@@ -15,7 +15,7 @@ FIrebase Realtime Database API를 사용하여 운동기록을 동기화하도�
 
 ## 후기
 
-NETFLIX 클론 사이트인 BOMFLIX를 만들고 나서 나에게 필요한 것을 만들기 위해 시작하였습니다.  
+첫 프로젝트인 [BOMFLIX](https://github.com/KBEUM/bomflix)를 만들고 나서 나에게 필요한 것을 만들기 위해 시작하였습니다.  
 3대운동 중량 증가를 위해 운동하는 나에게 맞춰 3대 운동만 기록하고 중량 증가를  
 차트로 확인 할 수 있는 웹을 만들기 시작했습니다.  
 일단 기록 및 로그 기능들은 구현하였지만 React State도 잘 관리가 안되고  
