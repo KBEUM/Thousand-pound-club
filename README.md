@@ -1,4 +1,4 @@
-# Thousnad-pound-club (진행중)
+# Thousand-pound-club (진행중)
 
 - https://thousand-pound-club-91656.web.app
 
